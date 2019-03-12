@@ -1,0 +1,22 @@
+package com.hust.spring.aop.helloworld;
+
+public class Main {
+    public static void main(String[] agrs){
+
+//        ArithmeticCalculator arithmeticCalculator = null;
+//        arithmeticCalculator = new ArithmeticCalculatorLoggingImpl();
+
+
+        ArithmeticCalculator target = new ArithmeticCalculatorImpl();
+        ArithmeticCalculator proxy = new ArithmeticCalculatorLoggingProxy(target).getLoggingProxy();
+
+        int result = proxy.add(1, 2);
+        System.out.println(result);
+        result = proxy.sub(5,2);
+        System.out.println(result);
+        result = proxy.mul(2,3);
+        System.out.println(result);
+        result = proxy.div(8,2);
+        System.out.println(result);
+    }
+}
